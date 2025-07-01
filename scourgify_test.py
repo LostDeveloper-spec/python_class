@@ -25,8 +25,9 @@ def main():
                     })
                 except ValueError:
                     sys.exit("Error: Invalid name format in input file.")
-
-# Write clean data to the output file
+    except Exception:
+        sys.exit("Error: Something went wrong. Try Fixing your name format in the input file")
+# Write cleaned data to the output CSV file
         with open(output_file, mode="w", newline="", encoding="utf-8") as outfile:
             fieldnames = ["first", "last", "house"]
             writer = csv.DictWriter(outfile, fieldnames=fieldnames)
