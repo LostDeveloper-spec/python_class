@@ -8,7 +8,7 @@ try:
     month_i = int(input_i[5:7])
     day_i = int(input_i[9:11])
 
-except:
+except Exception:
     print("wrong_input.error")
     sys.exit()
 
@@ -21,11 +21,11 @@ day_c = int(current[9:11])
 
 
 # getting the specific numbers
-conv_year = year_i - year_c
-conv_mon = month_i - month_c
-conv_day = day_i - day_c
+conv_year = (year_i*525600) - (year_c*525600)
+conv_mon = (month_i*43800) - (month_c*43800)
+conv_day = (day_i*1440) - (day_c*1440)
 
 
 #Final output
-minutes = (round(conv_year + conv_mon + conv_day))
-print("You are " + minutes + " minutes old")
+minutes = (abs(round(conv_year + conv_mon + conv_day)))
+print("You are " + str(minutes)+ " minutes old")
